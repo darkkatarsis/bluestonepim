@@ -1,15 +1,35 @@
-import { Box, Typography } from '@mui/material';
-import styles from './page.module.css';
+'use client';
+
+import { useState } from 'react';
+import { Box, Container, Typography, CircularProgress } from '@mui/material';
+import { ProductSearch } from '@/components/ProductSearch';
+import { ProductList } from '@/components/ProductList';
+import { useProductSearch } from '@/hooks/useProductSearch';
 
 export default function HomePage() {
+    const [searchQuery, setSearchQuery] = useState('');
+    const { results, isLoading, isSearching } = useProductSearch(searchQuery);
+
     return (
-        <Box component="main" className={styles.container}>
+        <Container maxWidth="md" sx={{ py: 4 }}>
             <Typography variant="h4" component="h1" gutterBottom>
-                Hello Bluestone PIM
+                Bluestone PIM Products
             </Typography>
-            <Typography variant="body1" color="text.secondary">
-                Product Information Management
-            </Typography>
-        </Box>
+
+            <ProductSearch value={searchQuery} onChange={setSearchQuery} />
+
+            {isLoading ? (
+                <ProductList products={[]} isLoading />
+            ) : isSearching ? (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2 }}>
+                    <CircularProgress size={16} />
+                    <Typography variant="body2" color="text.secondary">
+                        Searching...
+                    </Typography>
+                </Box>
+            ) : (
+                <ProductList products={results} />
+            )}
+        </Container>
     );
 }

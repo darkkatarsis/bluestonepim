@@ -6,7 +6,7 @@ export const productImageSchema = z.object({
     name: z.string().min(1, 'Image name is required'),
 });
 
-// Schema for product validation (used in edit form)
+// Schema for product validation
 export const productSchema = z.object({
     name: z.string().min(1, 'Product name is required'),
     number: z.coerce.string().min(1, 'Product number is required'),
