@@ -138,15 +138,6 @@ Products are stored in **IndexedDB** using Dexie.js. On first load, the app seed
 products: 'name, number'; // name = primary key
 ```
 
-## Architecture Notes
-
-This application follows patterns aligned with **MACH Alliance** principles:
-
--   **Microservices** - Decoupled components with clear responsibilities
--   **API-first** - Data layer abstracted through hooks
--   **Cloud-native** - Docker-ready, stateless frontend
--   **Headless** - UI separated from data management
-
 ## Sample Data
 
 The app includes 3 sample products for demonstration:
