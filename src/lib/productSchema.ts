@@ -16,3 +16,7 @@ export const productSchema = z.object({
 
 // TypeScript type inferred from Zod schema
 export type ProductFormData = z.infer<typeof productSchema>;
+
+// Schema for editing a product (name is readonly)
+export const productEditSchema = productSchema.omit({ name: true });
+export type ProductEditFormData = z.infer<typeof productEditSchema>;
