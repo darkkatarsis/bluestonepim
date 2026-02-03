@@ -16,17 +16,17 @@ A Next.js application for viewing and editing product information.
 
 ## Tech Stack
 
-| Layer       | Technology                         | Why                                     |
-| ----------- | ---------------------------------- | --------------------------------------- |
-| Framework   | Next.js 16 (App Router, Turbopack) | MACH Alliance, SSR/SSG, API Routes      |
-| Runtime     | Bun                                | Fast package manager and runtime        |
-| UI          | MUI 7 + CSS Modules                | Component library with custom theming   |
-| State/Cache | TanStack Query v5                  | Server state, caching, mutations        |
-| Forms       | React Hook Form + Zod              | Performant forms with schema validation |
-| Search      | Fuse.js                            | Client-side fuzzy search                |
-| Persistence | Dexie.js (IndexedDB)               | Browser-native NoSQL storage            |
-| Testing     | Vitest + React Testing Library     | Fast, modern test runner                |
-| Container   | Docker (multi-stage build)         | Dev/prod containerization               |
+| Layer       | Technology                         |
+| ----------- | ---------------------------------- |
+| Framework   | Next.js 16 (App Router, Turbopack) |
+| Runtime     | Bun                                |
+| UI          | MUI 7 + CSS Modules                |
+| State/Cache | TanStack Query v5                  |
+| Forms       | React Hook Form + Zod              |
+| Search      | Fuse.js                            |
+| Persistence | Dexie.js (IndexedDB)               |
+| Testing     | Vitest + React Testing Library     |
+| Container   | Docker (multi-stage build)         |
 
 ## Getting Started
 
@@ -76,10 +76,23 @@ docker-compose up prod
 
 ## Test Coverage
 
-<!-- TODO: Update after implementing tests -->
+| Metric     | Overall | Key Files (db, schema, ProductList) |
+| ---------- | ------- | ----------------------------------- |
+| Statements | 14.6%   | 100%                                |
+| Branches   | 74.3%   | 100%                                |
+| Functions  | 60.9%   | 100%                                |
+| Lines      | 14.6%   | 100%                                |
 
-```
-Run `bun run test:coverage` to generate a coverage report.
+**23 tests** covering:
+
+-   Data persistence (IndexedDB reload simulation)
+-   Database operations (Dexie.js CRUD)
+-   Schema validation (Zod)
+-   Component rendering (React Testing Library)
+
+```bash
+bun run test           # Run all tests
+bun run test:coverage  # Generate coverage report
 ```
 
 ## Project Structure

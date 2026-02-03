@@ -7,9 +7,12 @@ import type { Product } from '@/types/product';
  * @param name - The product name (primary key)
  */
 export function useProduct(name: string) {
-    return useQuery<Product | undefined>({
+    return useQuery<Product | null>({
         queryKey: ['product', name],
-        queryFn: () => db.products.get(name),
+        queryFn: async () => {
+            const product = await db.products.get(name);
+            return product ?? null;
+        },
         enabled: !!name,
         staleTime: 5 * 60 * 1000, // 5 minutes - product data rarely changes
     });
