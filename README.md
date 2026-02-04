@@ -130,13 +130,3 @@ Products are stored in **IndexedDB** using Dexie.js. On first load, the app seed
 // Database schema
 products: 'name, number'; // name = primary key
 ```
-
-## Sample Data
-
-The app includes 3 sample products for demonstration:
-
-| Name       | Number                              |
-| ---------- | ----------------------------------- |
-| b0006se5bq | singing coach unlimited             |
-| b00021xhzw | adobe after effects professional... |
-| b00021xhzy | domino designer/developer v5.0      |
