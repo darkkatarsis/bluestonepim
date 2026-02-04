@@ -2,13 +2,6 @@
 
 A Next.js application for viewing and editing product information.
 
-## Features
-
--   **Product List** - Browse all products with search functionality
--   **Product Details** - View and edit product information (name, number, description, images)
--   **Data Persistence** - Products are stored in IndexedDB and persist across browser sessions
--   **Fuzzy Search** - Find products quickly with Fuse.js powered search
-
 ## Requirements
 
 -   [Bun](https://bun.sh/) 1.x
